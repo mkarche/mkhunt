@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-6 ms-4">
+    <p>
+      <a href="#">New Category</a> - <a href="#">Return</a>
+    </p>
+    <h1>List of Categories</h1>
+    <ul>
+      <% @categories.each do |category| %>
+        <li> <%= category.name %>  <a href="#">Edit</a> - <a href="#">Delete</a> </li>
+      <%end%>
+    </ul>
+  </div>
+</div>
