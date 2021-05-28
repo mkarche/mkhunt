@@ -3,7 +3,7 @@ class ProductController < ApplicationController
     @products = Product.all
   end
   def show
-    @product=Product.where(id: params[:id])
+    @product=Product.find_by(id: params[:id])
   end
   def new
     @product = Product.new
@@ -19,10 +19,12 @@ class ProductController < ApplicationController
     end
   end
   def edit
-    @product = Product.where(id: params[:id])
+    @product = Product.find_by(id: params[:id])
+    @categories = Category.all
   end
   def update
-    @product = Product.where(id: params[:id])
+    @product = Product.find_by(id: params[:id])
+    @categories = Category.all
     if @product.update(product_params)
       redirect_to product_index_path
     else
