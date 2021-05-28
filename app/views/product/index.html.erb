@@ -1,12 +1,14 @@
 <div class="row">
   <div class="col-sm-6 ms-4">
     <p>
-      <a href="#">New Product</a> - <a href="#">Return</a>
+      <%= link_to "Home", root_path, class: 'btn btn-primary' %>
+      <%= link_to "New Product", new_product_path, class: 'btn btn-secondary' %>
+
     </p>
     <h1>List of Products</h1>
     <ul>
       <% @products.each do |product| %>
-        <li> <%= product.name %>  <a href="#">Edit</a> - <a href="#">Delete</a> </li>
+        <li> <%= link_to product.name, product_path(product) %>  <%=link_to "Edit", edit_product_path(product) %> - <%= link_to "Delete", product_path(product), method: :delete %> </li>
       <%end%>
     </ul>
   </div>

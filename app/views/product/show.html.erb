@@ -1,0 +1,13 @@
+<div class="row">
+  <%= link_to "Return Home", root_path, class: 'btn btn-primary' %>
+  <div class="col-sm-6 ms-2">
+    <p><%= @product.name %></p>
+    <p><%= @product.tagline %></p>
+    <p><%= @product.url %></p>
+    <p><%= @product.category.name %></p>
+    <p>
+      <%=link_to "Edit", edit_product_path(@product) %> - <%= link_to "Delete", product_path(@product), method: :delete %>
+    </p>
+  </div>
+
+</div>

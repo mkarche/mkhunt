@@ -1,0 +1,26 @@
+<div class="row">
+  <%= link_to "Return Home", root_path %>
+  <div class="col-sm-4 ms-4">
+    <h2>Edit Product</h2>
+    <%=simple_form_for @product, url: product_path(@product) do |f|%>
+      <div class="mb-3">
+        <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+        <%= f.label :name, class: 'form-label', label: 'Product name:' %>
+        <%= f.input_field :name, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :tagline, class: 'form-label', label: 'Product Description:' %>
+        <%= f.input_field :tagline, class: 'form-control', placeholder: 'Product Tagline' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :url, class: 'form-label', label: 'URL:' %>
+        <%= f.input_field :url, class: 'form-control'%>
+      </div>
+      <div class="mb-3">
+       <% #f.label :category_id, class: 'form-label', label: 'Product Category:' %>
+        <%= f.input :category_id, class: 'form-control', collection: @categories, error: 'is required'%>
+      </div>
+      <%= f.button :submit, class: "btn, btn-info" %>
+    <% end %>
+  </div>
+</div>
