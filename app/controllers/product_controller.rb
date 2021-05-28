@@ -33,6 +33,15 @@ class ProductController < ApplicationController
   end
   def destroy
     # render root_path
+    @product = Product.find_by(id: params[:id])
+
+    if @product.destroy
+      redirect_to root_path
+    elsif request.url.match(/\/product\/\d/i)
+      render :show
+    else
+      redirect_to root_path
+    end
   end
 
   private
